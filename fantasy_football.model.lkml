@@ -10,4 +10,27 @@ datagroup: fantasy_football_default_datagroup {
 
 persist_with: fantasy_football_default_datagroup
 
-explore: 2017_regular_season {}
+explore: regular_season_2017 {
+  view_label: "2017 Stats"
+  join: projections_2018 {
+    view_label: "2018 Projections"
+    sql_on: ${regular_season_2017.player_id} = ${projections_2018.player_id} ;;
+    relationship: one_to_one
+  }
+  join: adp_2018 {
+    view_label: "2018 Projections"
+    sql_on: ${regular_season_2017.player_id} = ${projections_2018.player_id} ;;
+    relationship: one_to_one
+  }
+  join: snap_counts_2017 {
+    view_label: "2017 Team Snap Counts"
+    sql_on: ${regular_season_2017.player_id} = ${snap_counts_2017.player_id} ;;
+    relationship: one_to_one
+  }
+  join: game_log_2017 {
+    view_label: "2017 Game Log"
+    sql_on: ${regular_season_2017.player_id} = ${game_log_2017.player_id} ;;
+    relationship: many_to_one
+  }
+
+}
