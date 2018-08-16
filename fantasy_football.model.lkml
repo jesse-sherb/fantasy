@@ -43,8 +43,15 @@ explore: regular_season_2017 {
     type: left_outer
     fields: [position_rank]
   }
+  join: position_ranking_2017 {
+    view_label: "2017 Stats"
+    sql_on: ${regular_season_2017.player_id} = ${position_ranking_2017.playerid};;
+    relationship: one_to_one
+    type: left_outer
+    fields: [position_rank]
+  }
   join: players {
-    view_label: "2018 Projecyions"
+    view_label: "2018 Projections"
     sql_on:  ${projections_2018.player_id} = ${players.id};;
     relationship: one_to_one
     type: left_outer
