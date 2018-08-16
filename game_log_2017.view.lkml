@@ -1,17 +1,34 @@
 view: game_log_2017 {
   sql_table_name: jesseset1.game_log_2017 ;;
 
-    dimension: primary_key {
-    hidden: yes
-    primary_key: yes
-    type: number
-    sql: concat(${player_id},${week}) ;;
-  }
+#     dimension: primary_key {
+#     hidden: yes
+#     primary_key: yes
+#     type: string
+#     sql: concat(${player_id},${week}) ;;
+#   }
 
     dimension: week {
     type: number
     sql: ${TABLE}.Week ;;
   }
+
+  dimension: opponent {
+    type: number
+    sql: ${TABLE}.opponent ;;
+  }
+
+  measure: total_yards {
+    type: number
+    sql: ${total_passing_yards} + ${total_rushing_yards} + ${total_receiving_yards} ;;
+  }
+
+  measure: running_total_points {
+    label: "Running Total of Points (Half PPR)"
+    type: running_total
+    sql: ${total_fantasy_points} ;;
+  }
+
 
   dimension: fantasy_points_half_point_ppr {
     label: "Total Points (Half PPR)"
@@ -132,6 +149,7 @@ view: game_log_2017 {
   }
 
   dimension: rank {
+    primary_key: yes
     type: number
     sql: ${TABLE}.Rank ;;
   }
@@ -172,7 +190,7 @@ view: game_log_2017 {
   }
 
   measure: total_rushing_touchdowns {
-    type: number
+    type: sum
     sql: ${rushing_touchdowns} ;;
   }
 

@@ -61,6 +61,7 @@ view: projections_2018 {
   dimension: name {
     type: string
     sql: ${TABLE}.Name ;;
+#     order_by_field: adp_2018.average_draft_pick
   }
 
   dimension: passing_interceptions {
@@ -161,7 +162,7 @@ view: projections_2018 {
   }
 
   measure: total_rushing_touchdowns {
-    type: number
+    type: sum
     sql: ${rushing_touchdowns} ;;
   }
 
@@ -180,10 +181,30 @@ view: projections_2018 {
     sql: ${total_passing_touchdowns} + ${total_rushing_touchdowns} + ${total_receiving_touchdowns} ;;
   }
 
+  measure: total_yards {
+    type: number
+    sql: ${total_passing_yards} + ${total_rushing_yards} + ${total_receiving_yards} ;;
+  }
+
+
   dimension: sacks {
     type: number
     sql: ${TABLE}.Sacks ;;
   }
+
+  measure: player_count {
+    type: count_distinct
+    sql: ${player_id} ;;
+  }
+
+#   measure: top_25_count {
+#     type: count_distinct
+#     filters: {
+#       field: rank
+#       value: "<26"
+#     }
+#     sql: ${player_id} ;;
+#   }
 
   measure: total_sacks {
     type: sum

@@ -16,6 +16,11 @@ view: regular_season_2017 {
     sql: ${fantasy_points_half_point_ppr} ;;
   }
 
+  measure: total_yards {
+    type: number
+    sql: ${total_passing_yards} + ${total_rushing_yards} + ${total_receiving_yards} ;;
+  }
+
   dimension: fantasy_points_per_game_half_point_ppr {
     label: "PPG (Half PPR)"
     type: number
@@ -161,7 +166,7 @@ view: regular_season_2017 {
   }
 
   measure: total_rushing_touchdowns {
-    type: number
+    type: sum
     sql: ${rushing_touchdowns} ;;
   }
 
