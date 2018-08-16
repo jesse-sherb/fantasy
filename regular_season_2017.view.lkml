@@ -9,6 +9,7 @@ view: regular_season_2017 {
   measure: total_fantasy_points {
     type: sum
     sql: ${fantasy_points_half_point_ppr} ;;
+    drill_fields: [name,position,team,average_points_per_game,position_ranking.position_rank,total_fantasy_points,total_touchdowns,total_yards]
   }
 
   measure: average_fantasy_points {

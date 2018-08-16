@@ -1,5 +1,14 @@
 view: adp_2018 {
-  sql_table_name: jesseset1.adp_2018 ;;
+  derived_table: {
+    sql: SELECT *,
+             row_number() over(order by averagedraftpositionppr) as draft_rank
+        FROM `advance-rush-213318.jesseset1.adp_2018` ;;
+  }
+
+  dimension: draft_rank {
+    type: number
+    sql: ${TABLE}.draft_rank ;;
+  }
 
   dimension: age {
     type: string
@@ -14,8 +23,9 @@ view: adp_2018 {
 
   dimension: rounded_adp {
     label: "Rounded ADP"
-    type: number
-    sql: round(${average_draft_position_ppr}) ;;
+    type: string
+    sql: cast(floor(${average_draft_position_ppr}) as string) ;;
+    order_by_field: average_draft_position_ppr
   }
 
   measure: average_draft_position {
@@ -45,6 +55,12 @@ view: adp_2018 {
     label: "Total Fantasy Points (PPR)"
     type: sum
     sql: ${fantasy_points_ppr} ;;
+  }
+
+  measure: total_fantasy_points_string {
+    label: "Total Fantasy Points (PPR) Rounded"
+    type: string
+    sql: ${total_fantasy_points} ;;
   }
 
   dimension: name {

@@ -11,6 +11,7 @@ datagroup: fantasy_football_default_datagroup {
 persist_with: fantasy_football_default_datagroup
 
 explore: regular_season_2017 {
+  label: "2018 Projections & 2017 Stats"
   view_label: "2017 Stats"
   join: projections_2018 {
     view_label: "2018 Projections"
@@ -26,7 +27,7 @@ explore: regular_season_2017 {
   }
   join: adp_2017 {
     view_label: "2017 Stats"
-    sql_on: ${regular_season_2017.player_id} = ${adp_2018.player_id} ;;
+    sql_on: ${regular_season_2017.player_id} = ${adp_2017.player_id} ;;
     relationship: one_to_one
     type: full_outer
   }
