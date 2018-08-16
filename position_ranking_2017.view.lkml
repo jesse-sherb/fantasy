@@ -1,6 +1,6 @@
 view: position_ranking_2017 {
     derived_table: {
-      sql: SELECT   Row_number() OVER(partition BY position ORDER BY rank) rank,
+      sql: SELECT   Row_number() OVER(partition BY position ORDER BY FantasyPointsHalfPointPpr desc) rank,
          playerid,
          NAME,
          position
