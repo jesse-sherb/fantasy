@@ -10,11 +10,11 @@ view: players {
 
   dimension: first {
     type: string
-    sql: ${TABLE}.First ;;
+    sql: lower(${TABLE}.First) ;;
   }
 
   dimension: last {
     type: string
-    sql: ${TABLE}.Last ;;
+    sql: lower(${TABLE}.Last) ;;
   }
 }

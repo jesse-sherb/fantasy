@@ -58,6 +58,7 @@ view: projections_2018 {
     sql: ${interceptions} ;;
   }
 
+
   dimension: name {
     type: string
     sql: ${TABLE}.Name ;;
@@ -68,7 +69,7 @@ view: projections_2018 {
     }
     link: {
       label: "Fantasy Pros"
-      url: "https://www.fantasypros.com/nfl/players/allen-hurns.php{{ value | encode_uri }}"
+      url: "https://www.fantasypros.com/nfl/players/{{ players.first._value }}-{{ players.last._value }}.php"
       icon_url: "https://www.evernote.com/l/An8yLPbWPDJKD5WmgBkegwP-clx54jmTfusB/image.jpg"
     }
   }
