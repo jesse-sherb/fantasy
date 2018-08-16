@@ -18,6 +18,11 @@ view: game_log_2017 {
     sql: ${TABLE}.opponent ;;
   }
 
+  dimension: key_position {
+    type: yesno
+    sql: ${position} in ('RB','WR','QB','TE') ;;
+  }
+
   measure: total_yards {
     type: number
     sql: ${total_passing_yards} + ${total_rushing_yards} + ${total_receiving_yards} ;;

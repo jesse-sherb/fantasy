@@ -1,5 +1,5 @@
-view: adp_2018 {
-  sql_table_name: jesseset1.adp_2018 ;;
+view: adp_2017 {
+  sql_table_name: jesseset1.adp_2017 ;;
 
   dimension: age {
     type: string

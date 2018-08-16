@@ -131,6 +131,11 @@ view: projections_2018 {
     sql: ${TABLE}.Position ;;
   }
 
+  dimension: key_position {
+    type: yesno
+    sql: ${position} in ('RB','WR','QB','TE') ;;
+  }
+
   dimension: rank {
     type: number
     sql: ${TABLE}.Rank ;;

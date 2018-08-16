@@ -16,6 +16,11 @@ view: regular_season_2017 {
     sql: ${fantasy_points_half_point_ppr} ;;
   }
 
+  dimension: key_position {
+    type: yesno
+    sql: ${position} in ('RB','WR','QB','TE') ;;
+  }
+
   measure: total_yards {
     type: number
     sql: ${total_passing_yards} + ${total_rushing_yards} + ${total_receiving_yards} ;;

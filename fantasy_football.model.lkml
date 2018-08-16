@@ -24,6 +24,12 @@ explore: regular_season_2017 {
     relationship: one_to_one
     type: full_outer
   }
+  join: adp_2017 {
+    view_label: "2017 Stats"
+    sql_on: ${regular_season_2017.player_id} = ${adp_2018.player_id} ;;
+    relationship: one_to_one
+    type: full_outer
+  }
   join: snap_counts_2017 {
     view_label: "2017 Team Snap Counts"
     sql_on: ${regular_season_2017.player_id} = ${snap_counts_2017.player_id} ;;
