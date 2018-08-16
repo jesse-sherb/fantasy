@@ -43,5 +43,11 @@ explore: regular_season_2017 {
     type: left_outer
     fields: [position_rank]
   }
+  join: players {
+    view_label: "2018 Projecyions"
+    sql_on:  ${projections_2018.player_id} = ${players.id};;
+    relationship: one_to_one
+    type: left_outer
+  }
 
 }

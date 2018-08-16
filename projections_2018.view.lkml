@@ -61,7 +61,16 @@ view: projections_2018 {
   dimension: name {
     type: string
     sql: ${TABLE}.Name ;;
-#     order_by_field: adp_2018.average_draft_pick
+    link: {
+      label: "{{ value }} Dashboard"
+      url: "/dashboards/2?Player={{ value | encode_uri }}"
+      icon_url: "https://www.evernote.com/l/An_2A5HrakdGMaKUDcG3DbFRuvrKrwMpJQ8B/image.png"
+    }
+    link: {
+      label: "Fantasy Pros"
+      url: "https://www.fantasypros.com/nfl/players/allen-hurns.php{{ value | encode_uri }}"
+      icon_url: "https://www.evernote.com/l/An8yLPbWPDJKD5WmgBkegwP-clx54jmTfusB/image.jpg"
+    }
   }
 
   dimension: passing_interceptions {
