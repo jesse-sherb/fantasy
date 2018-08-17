@@ -67,7 +67,7 @@ view: projections_2018 {
     sql: ${TABLE}.Name ;;
     link: {
       label: "{{ value }} Dashboard"
-      url: "/dashboards/2?Player={{ value | encode_uri }}"
+      url: "/dashboards/27?Player={{ value | encode_uri }}"
       icon_url: "https://www.evernote.com/l/An_2A5HrakdGMaKUDcG3DbFRuvrKrwMpJQ8B/image.png"
     }
     link: {
