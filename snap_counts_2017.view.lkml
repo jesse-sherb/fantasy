@@ -29,7 +29,7 @@ view: snap_counts_2017 {
 
   dimension: intended_touch_snap_percentage {
     type: number
-    sql: ${TABLE}.IntendedTouchSnapPercentage ;;
+    sql: ${TABLE}.IntendedTouchSnapPercentage/100 ;;
     value_format_name: percent_2
   }
 
@@ -61,7 +61,7 @@ view: snap_counts_2017 {
 
   dimension: rush_snap_percentage {
     type: number
-    sql: ${TABLE}.RushSnapPercentage ;;
+    sql: ${TABLE}.RushSnapPercentage/100 ;;
     value_format_name: percent_2
   }
 
@@ -92,25 +92,25 @@ view: snap_counts_2017 {
 
   dimension: snaps_played_percentage {
     type: number
-    sql: ${TABLE}.SnapsPlayedPercentage ;;
+    sql: ${TABLE}.SnapsPlayedPercentage/100 ;;
     value_format_name: percent_2
   }
 
   measure: average_snaps_played_percentage {
     type: average
-    sql: ${snaps_played_percentage} ;;
+    sql: ${snaps_played_percentage}/100 ;;
     value_format_name: percent_2
   }
 
   dimension: target_snap_percentage {
     type: number
-    sql: ${TABLE}.TargetSnapPercentage ;;
+    sql: ${TABLE}.TargetSnapPercentage/100 ;;
     value_format_name: percent_2
   }
 
   measure: average_target_snap_percentage {
     type: average
-    sql: ${target_snap_percentage} ;;
+    sql: ${target_snap_percentage}/100 ;;
     value_format_name: percent_2
   }
 
@@ -121,13 +121,37 @@ view: snap_counts_2017 {
 
   dimension: touch_snap_percentage {
     type: number
-    sql: ${TABLE}.TouchSnapPercentage ;;
+    sql: ${TABLE}.TouchSnapPercentage/100 ;;
     value_format_name: percent_2
+  }
+
+ dimension: touches {
+   type: number
+  sql: ${snaps_per_game} * ${touch_snap_percentage};;
+  value_format_name: decimal_2
+ }
+
+measure: average_touches {
+  type: average
+  sql: ${touches} ;;
+  value_format_name: decimal_2
+}
+
+  dimension: targets {
+    type: number
+    sql: ${snaps_per_game} * ${target_snap_percentage};;
+    value_format_name: decimal_2
+  }
+
+  measure: average_targets {
+    type: average
+    sql: ${targets} ;;
+    value_format_name: decimal_2
   }
 
   measure: average_touch_snap_percentage {
     type: average
-    sql: ${touch_snap_percentage} ;;
+    sql: ${touch_snap_percentage}/100 ;;
     value_format_name: percent_2
   }
 

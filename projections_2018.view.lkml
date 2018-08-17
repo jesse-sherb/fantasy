@@ -10,6 +10,7 @@ view: projections_2018 {
     type: sum
     sql: ${fantasy_points_half_point_ppr} ;;
     drill_fields: [name,position,team,average_points_per_game,position_ranking.position_rank,total_fantasy_points,total_touchdowns,total_yards]
+    value_format_name: decimal_1
   }
 
   measure: average_fantasy_points {
@@ -26,6 +27,7 @@ view: projections_2018 {
   measure: average_points_per_game {
     type: average
     sql: ${fantasy_points_per_game_half_point_ppr} ;;
+    value_format_name: decimal_1
   }
 
   dimension: fumbles_forced {

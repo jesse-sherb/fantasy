@@ -32,6 +32,7 @@ view: game_log_2017 {
     label: "Running Total of Points (Half PPR)"
     type: running_total
     sql: ${total_fantasy_points} ;;
+    value_format_name: decimal_1
   }
 
 
