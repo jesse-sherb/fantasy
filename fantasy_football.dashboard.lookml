@@ -2,15 +2,6 @@
   title: Fantasy Football
   layout: newspaper
   elements:
-  - name: <img src="https://www.evernote.com/l/An8gbirIekJOIp1hAKFAI_JocGhxiaQNJS0B/image.png"
-      width="100" height="131.5"/>
-    type: text
-    title_text: <img src="https://www.evernote.com/l/An8gbirIekJOIp1hAKFAI_JocGhxiaQNJS0B/image.png"
-      width="100" height="131.5"/>
-    row: 0
-    col: 0
-    width: 24
-    height: 3
   - title: Top Projected Players (Total Points)
     name: Top Projected Players (Total Points)
     model: fantasy_football
@@ -671,8 +662,8 @@
     col: 0
     width: 12
     height: 7
-  - title: Performance vs. Draft Pick by Position 2017
-    name: Performance vs. Draft Pick by Position 2017
+  - title: Performance vs Draft Pick by Position 2017
+    name: Performance vs Draft Pick by Position 2017
     model: fantasy_football
     explore: regular_season_2017
     type: looker_scatter
@@ -741,8 +732,8 @@
     col: 0
     width: 12
     height: 8
-  - title: Performance vs. Draft Pick by Position 2018 (Proj.)
-    name: Performance vs. Draft Pick by Position 2018 (Proj.)
+  - title: Performance vs Draft Pick by Position 2018 (Proj)
+    name: Performance vs Draft Pick by Position 2018 (Proj)
     model: fantasy_football
     explore: regular_season_2017
     type: looker_scatter

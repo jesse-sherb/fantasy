@@ -410,6 +410,7 @@
     col: 12
     width: 6
     height: 2
+    title: Total Points3
   - name: <font color="#0f3365" size="6" weight="bold">2017 Stats</font>
     type: text
     title_text: <font color="#0f3365" size="6" weight="bold">2017 Stats</font>
@@ -417,8 +418,7 @@
     col: 0
     width: 24
     height: 2
-  - title: Total Points
-    name: Total Points
+    name: Total Points3
     model: fantasy_football
     explore: regular_season_2017
     type: single_value
@@ -467,8 +467,8 @@
     col: 0
     width: 6
     height: 2
-  - title: Total Yards
-    name: Total Yards
+  - title: Total Yards2
+    name: Total Yards2
     model: fantasy_football
     explore: regular_season_2017
     type: single_value
@@ -516,8 +516,8 @@
     col: 18
     width: 6
     height: 2
-  - title: Total Touchdowns
-    name: Total Touchdowns
+  - title: Total Touchdowns2
+    name: Total Touchdowns2
     model: fantasy_football
     explore: regular_season_2017
     type: single_value
@@ -565,8 +565,8 @@
     col: 12
     width: 6
     height: 2
-  - title: Position Rank
-    name: Position Rank
+  - title: Position Rank2
+    name: Position Rank2
     model: fantasy_football
     explore: regular_season_2017
     type: single_value
