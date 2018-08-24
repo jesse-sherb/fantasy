@@ -1,37 +1,41 @@
-view: position_ranking {
+view: position_ranking_4for4 {
   derived_table: {
-    sql: SELECT   Row_number() OVER(partition BY position ORDER BY FantasyPointsHalfPointPpr desc) rank,
-         playerid,
-         NAME,
-         position
-FROM     `advance-rush-213318.jesseset1.projections_2018`
-       ;;
-  }
-
-  measure: count {
-    type: count
-    drill_fields: [detail*]
+    sql: SELECT   Row_number() OVER(partition BY pos ORDER BY ff_pts DESC) ranks,
+         player,
+         pos,
+         team
+FROM     `advance-rush-213318.jesseset1.4for4_2018_projections`
+ ;;
   }
 
   dimension: position_rank {
+    label: "4for4 Position Rank"
     type: number
-    sql: ${TABLE}.rank ;;
+    sql: ${TABLE}.ranks ;;
   }
 
   measure: average_position_rank {
+    label: "Average 4for4 Position Rank"
     type: average
     sql: ${position_rank} ;;
   }
 
-  dimension: playerid {
+  measure: position_rank_diff {
+    label: "4for4 Position Rank Difference"
     type: number
-    sql: ${TABLE}.playerid ;;
+    sql: ${position_ranking.average_position_rank} - ${average_position_rank} ;;
   }
+
+#   measure: average_position_rank_diff {
+#     label: "Average 4for4 Position Rank Difference"
+#     type: average
+#     sql: ${position_rank} ;;
+#   }
 
   dimension: player_original {
     hidden: yes
     type: string
-    sql: ${TABLE}.name ;;
+    sql: ${TABLE}.player ;;
   }
 
   dimension: player_no_period {
@@ -61,12 +65,14 @@ FROM     `advance-rush-213318.jesseset1.projections_2018`
     }
   }
 
-  dimension: position {
+  dimension: pos {
     type: string
-    sql: ${TABLE}.position ;;
+    sql: ${TABLE}.pos ;;
   }
 
-  set: detail {
-    fields: [position_rank, playerid, name, position]
+  dimension: team {
+    type: string
+    sql: ${TABLE}.team ;;
   }
+
 }

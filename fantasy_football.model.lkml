@@ -22,6 +22,24 @@ explore: regular_season_2017 {
     relationship: one_to_one
     type: full_outer
   }
+  join: fourfour_2018_projections {
+    view_label: "2018 Projections"
+    sql_on: ${projections_2018.name} = ${fourfour_2018_projections.player}
+    and ${projections_2018.team} = ${fourfour_2018_projections.team}
+    and ${projections_2018.position} = ${fourfour_2018_projections.pos};;
+    relationship: one_to_one
+    type: left_outer
+    fields: [fourfour_2018_projections.gc_difference,fourfour_2018_projections.pts_proj,fourfour_2018_projections.average_pts,fourfour_2018_projections.total_pts]
+  }
+  join: position_ranking_4for4 {
+    view_label: "2018 Projections"
+    sql_on: ${projections_2018.name} = ${position_ranking_4for4.player}
+    and ${projections_2018.team} = ${position_ranking_4for4.team}
+    and ${projections_2018.position} = ${position_ranking_4for4.pos};;
+    relationship: one_to_one
+    type: left_outer
+    fields: [position_rank,position_ranking_4for4.position_rank_diff,position_ranking_4for4.average_position_rank]
+  }
   join: adp_2018 {
     view_label: "2018 Projections"
     sql_on: ${projections_2018.player_id} = ${adp_2018.player_id} ;;
@@ -51,7 +69,7 @@ explore: regular_season_2017 {
     sql_on: ${projections_2018.player_id} = ${position_ranking.playerid};;
     relationship: one_to_one
     type: left_outer
-    fields: [position_rank]
+    fields: [position_rank,average_position_rank]
   }
   join: position_ranking_2017 {
     view_label: "2017 Stats"

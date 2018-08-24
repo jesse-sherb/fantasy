@@ -61,10 +61,34 @@ view: projections_2018 {
     sql: ${interceptions} ;;
   }
 
+  dimension: player_original {
+    hidden: yes
+    type: string
+    sql: ${TABLE}.name ;;
+  }
+
+  dimension: player_no_jr {
+    hidden: yes
+    type: string
+    sql: replace(${player_original}," Jr","") ;;
+  }
+
+  dimension: player_no_period {
+    hidden: yes
+    type: string
+    sql: replace(${player_no_jr},".","") ;;
+  }
+
+  dimension: player {
+    hidden: yes
+    type: string
+    sql: replace(${player_no_period},"'","") ;;
+  }
+
 
   dimension: name {
     type: string
-    sql: ${TABLE}.Name ;;
+    sql: ${player} ;;
     link: {
       label: "{{ value }} Dashboard"
       url: "/dashboards/27?Player={{ value | encode_uri }}"
