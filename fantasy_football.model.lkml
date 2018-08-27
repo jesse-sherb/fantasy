@@ -64,6 +64,13 @@ explore: regular_season_2017 {
     relationship: many_to_one
     type: full_outer
   }
+  join: game_log_2018 {
+    view_label: "2018 Game Log (Proj.)"
+    sql_on: ${projections_2018.player_id} = ${game_log_2018.player_id} ;;
+#     and ${game_log_2017.week} = ${game_log_2018.week} ;;
+    relationship: many_to_one
+    type: full_outer
+  }
   join: position_ranking {
     view_label: "2018 Projections"
     sql_on: ${projections_2018.player_id} = ${position_ranking.playerid};;

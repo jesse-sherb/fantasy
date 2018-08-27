@@ -1,14 +1,14 @@
-view: game_log_2017 {
-  sql_table_name: jesseset1.game_log_2017 ;;
+view: game_log_2018 {
+  sql_table_name: jesseset1.game_log_2018 ;;
 
-  dimension: primary_key {
+    dimension: primary_key {
     hidden: yes
     primary_key: yes
     type: string
     sql: concat(cast(${player_id} as string),cast(${week} as string)) ;;
   }
 
-    dimension: week {
+  dimension: week {
     type: number
     sql: ${TABLE}.Week ;;
   }
@@ -242,29 +242,6 @@ view: game_log_2017 {
     type: number
     sql: ${total_passing_touchdowns} + ${total_rushing_touchdowns} + ${total_receiving_touchdowns} ;;
   }
-
-#   parameter: compare_filter {
-#     required_fields: [name]
-#     suggest_dimension: name
-#   }
-#
-#   dimension: comparison_player {
-#     type: string
-#     sql:
-#     CASE WHEN {% condition individual_filter %} ${name} {% endcondition %}
-#     THEN 'Comparison Player'
-#     ELSE 'Filtered Player'
-#     END ;;
-#   }
-#
-#   measure: total_touchdowns_filtered_player {
-#     type: number
-#     filters: {
-#       field: comparison_player
-#       value: "Filtered Player"
-#     }
-#     sql: ${total_touchdowns} ;;
-#   }
 
   dimension: sacks {
     type: number

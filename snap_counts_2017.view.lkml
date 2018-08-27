@@ -107,6 +107,7 @@ view: snap_counts_2017 {
   measure: average_snaps_per_game {
     type: average
     sql: ${snaps_per_game} ;;
+    value_format_name: decimal_2
   }
 
   dimension: snaps_played {
@@ -127,7 +128,7 @@ view: snap_counts_2017 {
 
   measure: average_snaps_played_percentage {
     type: average
-    sql: ${snaps_played_percentage}/100 ;;
+    sql: ${snaps_played_percentage} ;;
     value_format_name: percent_2
   }
 
@@ -139,7 +140,7 @@ view: snap_counts_2017 {
 
   measure: average_target_snap_percentage {
     type: average
-    sql: ${target_snap_percentage}/100 ;;
+    sql: ${target_snap_percentage} ;;
     value_format_name: percent_2
   }
 
@@ -180,7 +181,7 @@ measure: average_touches {
 
   measure: average_touch_snap_percentage {
     type: average
-    sql: ${touch_snap_percentage}/100 ;;
+    sql: ${touch_snap_percentage} ;;
     value_format_name: percent_2
   }
 

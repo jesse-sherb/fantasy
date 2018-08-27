@@ -228,7 +228,6 @@ view: projections_2018 {
     sql: ${total_passing_yards} + ${total_rushing_yards} + ${total_receiving_yards} ;;
   }
 
-
   dimension: sacks {
     type: number
     sql: ${TABLE}.Sacks ;;
