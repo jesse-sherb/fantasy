@@ -21,6 +21,7 @@ FROM     `advance-rush-213318.jesseset1.projections_2018`
   measure: average_position_rank {
     type: average
     sql: ${position_rank} ;;
+    value_format_name: decimal_1
   }
 
   dimension: playerid {
